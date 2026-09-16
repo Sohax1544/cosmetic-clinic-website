@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { clientConfig } from '../client.config';
-import { Activity, Sparkles, Layers } from 'lucide-react';
 
 export const MethodSection: React.FC = () => {
   const { method } = clientConfig;
+  const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,18 +25,12 @@ export const MethodSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const icons = [
-    <Activity key="1" className="w-4 h-4 text-[#C9A876]" />,
-    <Sparkles key="2" className="w-4 h-4 text-[#C9A876]" />,
-    <Layers key="3" className="w-4 h-4 text-[#C9A876]" />,
-  ];
-
   return (
     <section 
       id="method"
       ref={sectionRef}
       aria-label="The Clinical Method: Measure, Intervene, Extend"
-      className="bg-[#F7F5F1] text-[#0A0A0A] py-24 sm:py-32 border-b border-[#E6E2DA] scroll-mt-28 overflow-hidden"
+      className="bg-[#F7F5F1] text-[#0A0A0A] py-24 sm:py-32 border-b border-hairline scroll-mt-28 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
@@ -43,14 +38,14 @@ export const MethodSection: React.FC = () => {
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-[1px] bg-[#C9A876]" />
-            <span className="text-xs font-semibold tracking-luxury uppercase text-[#0A0A0A]/70">
+            <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/70">
               {method.tag}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0A0A0A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-[#0A0A0A] tracking-tight mb-4">
             {method.title}
           </h2>
-          <p className="text-sm sm:text-base text-[#525252] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#525252] font-normal leading-relaxed">
             {method.subtitle}
           </p>
         </div>
@@ -60,11 +55,11 @@ export const MethodSection: React.FC = () => {
           {method.steps.map((item, idx) => (
             <article
               key={item.step}
-              className={`group bg-[#FAF8F5] border border-[#E6E2DA] rounded-2xl transition-all duration-700 hover:border-[#C9A876] hover:shadow-xl flex flex-col justify-between overflow-hidden ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`group bg-[#FAF8F5] border border-hairline rounded-2xl transition-all duration-700 hover:border-[#C9A876] hover:shadow-xl flex flex-col justify-between overflow-hidden ${
+                isVisible || reduceMotion ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{
-                transitionDelay: `${idx * 150}ms`
+                transitionDelay: reduceMotion ? '0ms' : `${idx * 150}ms`
               }}
             >
               <div>
@@ -88,34 +83,27 @@ export const MethodSection: React.FC = () => {
 
                   {/* Small Phase Header Badge */}
                   <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
-                    <span className="px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-md text-[#0A0A0A] text-[10px] font-mono tracking-widest uppercase border border-[#E6E2DA] rounded-md">
-                      PHASE {item.step}
+                    <span className="px-3 py-1 bg-[#FAF8F5]/90 backdrop-blur-md text-[#0A0A0A] text-[10px] font-sans tracking-widest uppercase border border-hairline rounded-md">
+                      {method.stepPrefix} {item.step}
                     </span>
-                    <span className="px-3 py-1 bg-[#0A0A0A]/80 backdrop-blur-md text-[#C9A876] text-[10px] font-semibold tracking-luxury uppercase border border-[#C9A876]/30 rounded-md">
+                    <span className="px-3 py-1 bg-[#0A0A0A]/80 backdrop-blur-md text-[#C9A876] text-[10px] font-medium tracking-widest uppercase border border-[#C9A876]/30 rounded-md">
                       {item.phase}
                     </span>
-                  </div>
-
-                  {/* Bottom-Right Small Icon (Always visible by default) */}
-                  <div className="absolute bottom-4 right-4 z-20">
-                    <div className="w-8 h-8 rounded-lg bg-[#0A0A0A]/80 border border-[#C9A876]/40 flex items-center justify-center text-[#C9A876]">
-                      {icons[idx]}
-                    </div>
                   </div>
 
                 </div>
 
                 {/* Card Text Content */}
                 <div className="p-6 sm:p-8">
-                  <span className="text-[11px] font-semibold tracking-luxury uppercase text-[#8F7041] block mb-2">
-                    Step {item.step} · {item.phase}
+                  <span className="text-[11px] font-medium tracking-widest uppercase text-gold-text block mb-2">
+                    {method.stepWord} {item.step} · {item.phase}
                   </span>
                   
-                  <h3 className="text-xl font-serif text-[#0A0A0A] font-normal leading-snug mb-3">
+                  <h3 className="text-xl font-sans text-[#0A0A0A] font-normal leading-snug mb-3">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#525252] font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#525252] font-normal leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -123,8 +111,8 @@ export const MethodSection: React.FC = () => {
               </div>
 
               {/* Bottom Subtle Indicator */}
-              <div className="px-6 sm:px-8 py-4 border-t border-[#E6E2DA] flex items-center justify-between text-xs text-[#737373] bg-[#F7F5F1] rounded-b-2xl">
-                <span className="font-mono text-[11px]">PHASE {item.step} / 03</span>
+              <div className="px-6 sm:px-8 py-4 border-t border-hairline flex items-center justify-between text-xs text-ink-400 bg-[#F7F5F1] rounded-b-2xl">
+                <span className="font-sans text-[11px] tracking-widest uppercase">{method.stepPrefix} {item.step} / {String(method.steps.length).padStart(2, '0')}</span>
               </div>
             </article>
           ))}

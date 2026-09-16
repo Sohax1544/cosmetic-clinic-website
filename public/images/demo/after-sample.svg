@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample after image placeholder">
+  <rect width="1200" height="900" fill="#EFECE6"/>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#C9A876" stroke-opacity="0.55" stroke-width="2"/>
+  <!-- Copy sits in this plate's OUTER half (right of the 50% divider) and in the LOWER band,
+       staggered against the before plate's notice so the two do not read as a duplicated
+       label at the default position.
+       Each plate STILL carries the notice, so it stays visible whichever way the handle is
+       dragged — at 0% only this plate shows, at 100% only the other one. -->
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="900" y="560" fill="#0A0A0A" font-size="96" font-weight="500" letter-spacing="16">SAMPLE</text>
+    <text x="900" y="618" fill="#806334" font-size="26" font-weight="500" letter-spacing="6">NOT A PATIENT RESULT</text>
+  </g>
+</svg>

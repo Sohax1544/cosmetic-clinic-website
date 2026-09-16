@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample before image placeholder">
+  <rect width="1200" height="900" fill="#0A0A0A"/>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#C9A876" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- Copy sits in this plate's OUTER half (left of the 50% divider) and in the UPPER band,
+       so the divider never bisects it, and the two plates' notices are staggered vertically
+       rather than reading as a duplicate label at the default position. Vertical placement
+       also survives the ~8% top/bottom crop if the frame is ever a wider ratio. -->
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="300" y="374" fill="#E5E0D8" font-size="96" font-weight="500" letter-spacing="16">SAMPLE</text>
+    <text x="300" y="432" fill="#C9A876" font-size="26" font-weight="500" letter-spacing="6">NOT A PATIENT RESULT</text>
+  </g>
+</svg>

@@ -253,11 +253,11 @@ Run `.audit/verify.mjs` after any layout change — it encodes most of §8.
 
 - **There is no `.gitignore`.**
 - **`node_modules` (8,898 files) and `dist` (568 files) are committed.**
-- **`.audit/` is 3.57 GB across 116,206 files** — ~44 abandoned Chrome profile directories
-  (`prof-*`, `chrome-profile-*`) left behind by successive screenshot runs. Only **42.5 KB
-  across 7 files** of that directory is the actual tooling. Never `git add .audit/`; stage the
-  scripts by name. Deleting the `prof-*` and `chrome-profile*` directories reclaims ~3.5 GB and
-  is safe — they are regenerable browser state, not source.
+- **`.audit/` was 3.63 GB across 116,206 files; it is now 36.6 MB.** 46 abandoned Chrome profile directories
+  (`prof-*`, `chrome-profile-*`) from successive screenshot runs were deleted after confirming that no audit
+  Chrome process was running. They are regenerable — every script passes `--user-data-dir`, so Chrome
+  recreates the directory on launch, and `verify.mjs` alone makes four (one per route). Never `git add .audit/`;
+  stage the scripts by name — only 42.5 KB across 7 files is real tooling.
 - **Most of the application was untracked before this session's commit:** the entire router
   (`src/lib/router.tsx`), all four pages, the whole procedure dataset
   (`src/data/procedures/*.ts`), six components, `scripts/` (the config validator), and

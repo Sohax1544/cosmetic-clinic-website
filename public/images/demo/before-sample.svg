@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample before image placeholder">
   <rect width="1200" height="900" fill="#0A0A0A"/>
-  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#C9A876" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#D6C0A0" stroke-opacity="0.35" stroke-width="2"/>
   <!-- Copy sits in this plate's OUTER half (left of the 50% divider) and in the UPPER band,
        so the divider never bisects it, and the two plates' notices are staggered vertically
        rather than reading as a duplicate label at the default position. Vertical placement

@@ -10,6 +10,33 @@ export interface StatItem {
   description: string;
 }
 
+/** The duotone visual a course or category carries when a photograph is absent. */
+export interface CourseVisual {
+  /** Caption that sits on the plate, e.g. "Cool · Laser". */
+  label: string;
+  /** Dark end of the ramp. The caption scrim is measured against this. */
+  from: string;
+  /** Light end of the ramp. */
+  to: string;
+}
+
+export interface CoursePackage {
+  id: string;
+  name: string;
+  summary: string;
+  priceGuide: string;
+  savingNote?: string;
+  /** Procedure ids. Validated by `npm run check` against the real catalogue. */
+  treatmentIds: string[];
+  includes?: string[];
+  /**
+   * Optional. Delete it and the card falls back to the neutral Deep Ivory plate —
+   * the section still composes, so a course without a colour identity is a valid
+   * config, not a broken one.
+   */
+  visual?: CourseVisual;
+}
+
 export interface TreatmentProcessStep {
   title: string;
   description: string;
@@ -172,49 +199,75 @@ export const clientConfig = {
       ink: "#0A0A0A", // Near-black ink
       inkMuted: "#525252",
       inkSubtle: "#666666",
-      accentGold: "#C9A876", // Muted bronze/gold
+      accentGold: "#D6C0A0", // Muted bronze/gold
       accentGoldHover: "#B89660",
       accentGoldLight: "#E0C89E",
       borderLight: "#E6E2DA",
       borderSubtle: "#D6CFC3",
     },
+    // Type stacks resolve to the CSS variables declared in src/styles/fonts.css.
+    // That file is the single swap point: change --font-display / --font-sans there
+    // and the whole site follows. Current default is Montserrat — the face
+    // thenovaclinic.com is set in, and a close relative of shookra.com's display face
+    // (Gordita) — with Switzer carrying reading copy. Figtree is a self-hosted
+    // alternative, ready to swap in with one edit.
     fonts: {
-      headlineSerif: 'Switzer, ui-sans-serif, system-ui, sans-serif',
-      bodySans: 'Switzer, ui-sans-serif, system-ui, sans-serif',
-      statDisplay: 'Switzer, ui-sans-serif, system-ui, sans-serif',
+      headlineDisplay: 'var(--font-display)',
+      bodySans: 'var(--font-sans)',
+      statDisplay: 'var(--font-display)',
     },
   },
 
   // Hero.
-  // One clinic / treatment-room photograph. Drop the file into public/images and set
-  // `image` below — that is the only change needed. Left empty, the hero renders the
-  // exact same layout on a tonal background, with no missing-image affordance.
+  // Full-bleed background photograph, edge to edge, with one composed editorial column of
+  // type over its left side. The column shares the header's container and gutters, so the
+  // wordmark and the hero copy start on one left edge. A reskin changes this block; no
+  // component edit.
+  //
+  // Drop the photograph into public/images and set `image` below — that is the only
+  // change needed. Left empty, the hero renders the same composition on the cream token,
+  // with no missing-image affordance.
+  //
+  // FOUR ELEMENTS, FOUR JOBS. Each says one thing and only one thing:
+  //   eyebrow    → location
+  //   headline   → the brand claim (two composed lines, one per config key)
+  //   subheadline→ the treatments offered
+  //   actions    → book, or browse
+  // The hero carries NO proof strip. Rating, review count and the DHA licence are not
+  // repeated here; the licence appears in the footer and on the team section, the contact
+  // detail lives in the header.
   hero: {
     sectionAriaLabel: "Aesthetic medicine and skin clinic in Jumeirah, Dubai",
-    badgeText: "DUBAI · PHYSICIAN-LED · DHA-LICENSED",
-    headlineMain: "Aesthetic medicine in",
-    headlineEmphasis: "Jumeirah, Dubai.",
-    subheadline: "Injectables, laser and skin treatments planned and performed by DHA-licensed physicians. Natural results, no guesswork.",
+    // Retired from the hero: the rating/review and DHA-badge row that used to sit under
+    // the CTAs. The hero is copy and actions only. If proof returns, it returns as its own
+    // section — not as a strip in the hero.
+    badgeText: "Jumeirah · Dubai", // eyebrow = location only
+    // Renders as two explicit lines, one element each — the break is composed in the
+    // component, never left to the browser's text wrapping.
+    headlineMain: "Aesthetic care,",
+    headlineEmphasis: "beautifully considered.",
+    subheadline: "Injectables · Laser · Skin treatments", // subheadline = treatments only
     ctaWhatsAppText: "Book a consultation",
     ctaWhatsAppMessage: "Hello Maison Été Clinique, I would like to book a consultation at your Jumeirah clinic.",
     ctaWhatsAppAriaLabel: "Book a consultation via WhatsApp",
-    phoneCtaText: "Call the clinic",
-    phoneCtaAriaLabel: "Call the clinic by phone",
-    // Trust row under the hero CTA — the above-the-fold signals every Dubai
-    // competitor leads with (rating, licence, location). PLACEHOLDER rating.
-    trustItems: [
-      { value: "4.9★", label: "Google rating" },
-      { value: "DHA", label: "Licensed facility" },
-      { value: "Jumeirah", label: "Dubai" },
-    ],
-    scrollHintLabel: "SCROLL",
-    scrollHintAriaLabel: "Scroll to clinic introduction",
-    // Hero photograph, e.g. "/images/hero/clinic-reception.jpg".
-    // Recommended: a real clinic interior or treatment room. Avoid stock faces.
-    image: "",
+    ctaSecondaryText: "View procedures",
+    ctaSecondaryHref: "/procedures",
+    ctaSecondaryAriaLabel: "View all procedures",
+    // Background photograph. Full-bleed: object-cover fills the hero at any aspect
+    // ratio, framed on the treatment chair.
+    image: "/images/hero/clinic-hero.png",
     imageAlt: "Our treatment room in Jumeirah, Dubai",
-    // CSS object-position — frame a portrait shot without re-cropping the file.
-    imagePosition: "center",
+    // CSS object-position — keep the treatment chair centred whatever the crop.
+    imagePosition: "center 55%",
+    // The photograph's own brightness, and the single switch the hero's contrast logic
+    // reads. 'light' = a bright room, so the hero type is ink over a soft IVORY veil and
+    // the header floats in ink on the same veil. 'dark' = ivory type over a darkening
+    // scrim. The veil is always derived from this, never hard-coded, so a dark hero is a
+    // one-word reskin rather than a component edit. See DESIGN.md, The Lit Hero Rule.
+    tone: "light" as "light" | "dark",
+    // Optional extra scrim, on top of the veil `tone` derives. 0 renders no treatment at
+    // all, which is the default: the veil above is measured to carry the type on its own.
+    overlayOpacity: 0,
   },
 
   // Manifesto & Key Clinic Metrics (plain, patient-facing)
@@ -692,6 +745,13 @@ export const clientConfig = {
     whatsappMessage: "Hello Maison Été Clinique, I would like to book a consultation at your Jumeirah clinic.",
     whatsappAriaLabel: "Book a consultation via WhatsApp",
     trustNote: "Typical WhatsApp reply within 15 minutes during clinic hours",
+    // Full-bleed closing photograph. The figure sits in the right half and the left
+    // third is already in shadow, which is what lets the copy sit over it at ivory
+    // without a heavy scrim. Framing is 'cover': the mobile crop is pushed right so the
+    // figure survives, and desktop centres so she keeps her place beside the skyline.
+    image: "/images/closing/closing-terrace.png",
+    imageAlt:
+      "A guest walking the terrace of our Jumeirah clinic at sunset, the Dubai skyline behind her",
   },
 
   // Default document title / description for the home route
@@ -759,6 +819,12 @@ export const clientConfig = {
 
   // Courses & packages for the multi-session treatments patients ask about most.
   // PLACEHOLDER PRICES — replace with the clinic's real package pricing.
+  //
+  // This chapter renders on the system's one full-bleed colour field (the forest
+  // ground in tailwind.config.js) and every course carries its own duotone visual.
+  // Set `visual` on an item to give it its own hue; the plate is decorative only and
+  // never carries body copy. Delete `visual` and the plate falls back to the neutral
+  // TonalPlate, so the section still composes without it.
   packages: {
     tag: "COURSES & PACKAGES",
     title: "Multi-Session Courses",
@@ -779,6 +845,9 @@ export const clientConfig = {
           "Six sessions on one area",
           "Review after session three",
         ],
+        // PLACEHOLDER VISUAL — swap for real course photography when it exists.
+        // White plate label measures 8.53:1 at the dark end of this gradient.
+        visual: { label: "Cool · Laser", from: "#3F4E5E", to: "#8FA3B8" },
       },
       {
         id: "skin-resurfacing-course",
@@ -792,6 +861,8 @@ export const clientConfig = {
           "Three resurfacing sessions",
           "Aftercare plan and review",
         ],
+        // PLACEHOLDER VISUAL — white plate label measures 5.13:1 here.
+        visual: { label: "Warm · Resurfacing", from: "#8E6630", to: "#D9B37A" },
       },
       {
         id: "facial-refresh-course",
@@ -805,8 +876,10 @@ export const clientConfig = {
           "Skin assessment at the first visit",
           "Product advice for home",
         ],
+        // PLACEHOLDER VISUAL — white plate label measures 6.43:1 here.
+        visual: { label: "Blush · Facial", from: "#96482F", to: "#E5B9A3" },
       },
-    ],
+    ] as CoursePackage[],
   },
 
   // Home results strip. Renders ONLY when at least one procedure carries real

@@ -46,7 +46,7 @@ function useMediaQuery(query: string) {
 
 const SectionLabel: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="mb-4 flex items-center gap-3">
-    <div className="h-[1px] w-8 bg-[#C9A876]" />
+    <div className="h-[1px] w-8 bg-[#D6C0A0]" />
     <span className="text-xs font-medium uppercase tracking-widest text-gold-text">{children}</span>
   </div>
 );
@@ -185,7 +185,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
       type="button"
       onClick={onClose}
       aria-label="Close procedure summary"
-      className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-[#FAF8F5] text-[#0A0A0A] transition-colors hover:bg-[#EFECE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-[#FAF8F5] text-[#0A0A0A] transition-colors hover:bg-[#EFECE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
     >
       <X className="h-4 w-4" />
     </button>
@@ -196,7 +196,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
   const detailsButton = fullPageHref ? (
     <Link
       to={fullPageHref}
-      className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#C9A876] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A]"
+      className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A]"
     >
       <span>{clientConfig.treatmentsSection.detailsLabel}</span>
       <ArrowRight className="h-4 w-4" />
@@ -209,10 +209,10 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex w-full items-center justify-center gap-2.5 rounded-xl px-6 py-3.5 text-xs font-medium uppercase tracking-widest transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]',
+        'flex w-full items-center justify-center gap-2.5 rounded-xl px-6 py-3.5 text-xs font-medium uppercase tracking-widest transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]',
         fullPageHref
-          ? 'border border-hairline bg-transparent text-[#0A0A0A] hover:border-[#C9A876]'
-          : 'bg-[#C9A876] text-[#0A0A0A] hover:bg-[#B89660]'
+          ? 'border border-hairline bg-transparent text-[#0A0A0A] hover:border-[#D6C0A0]'
+          : 'bg-[#D6C0A0] text-[#0A0A0A] hover:bg-[#B89660]'
       )}
     >
       <WhatsAppIcon className="h-4 w-4" />
@@ -250,7 +250,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
             {categoryPill}
             {closeButton}
           </div>
-          <h2 className="mt-4 font-sans text-2xl leading-snug tracking-tight text-[#0A0A0A] sm:text-3xl">
+          <h2 className="mt-4 font-display text-2xl leading-snug tracking-tight text-[#2A2622] sm:text-3xl">
             {treatment.title}
           </h2>
           <p className="mt-2 text-sm font-light leading-relaxed text-gold-text sm:text-base">
@@ -297,7 +297,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
             </figure>
           )}
 
-          <p className="text-sm font-normal leading-relaxed text-[#525252] sm:text-base">
+          <p className="text-sm font-normal leading-relaxed text-ink-500 sm:text-base">
             {treatment.description}
           </p>
 
@@ -320,7 +320,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
               <SectionLabel>Is this right for you?</SectionLabel>
               <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 {details.suitableFor.slice(0, 4).map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-[#525252]">
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-ink-500">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#C9A876]" />
                     <span className="leading-snug">{item}</span>
                   </li>
@@ -330,7 +330,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
           )}
 
           {fullPageHref && (
-            <p className="mt-8 rounded-xl border border-hairline bg-[#F7F5F1] p-4 text-xs leading-relaxed text-[#525252]">
+            <p className="mt-8 rounded-xl border border-hairline bg-[#F7F5F1] p-4 text-xs leading-relaxed text-ink-500">
               The full treatment page covers the step-by-step process, aftercare, the
               practitioner who performs it and the questions patients ask most.
             </p>

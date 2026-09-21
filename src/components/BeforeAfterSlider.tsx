@@ -96,7 +96,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         />
       </div>
 
-      <span className="pointer-events-none absolute right-3 top-3 rounded-md border border-[#C9A876]/40 bg-[#0A0A0A]/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#C9A876] backdrop-blur-md">
+      <span className="pointer-events-none absolute right-3 top-3 rounded-md border border-[#D6C0A0]/40 bg-[#0A0A0A]/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#C9A876] backdrop-blur-md">
         {afterLabel}
       </span>
       <span className="pointer-events-none absolute left-3 top-3 rounded-md border border-hairline bg-[#FAF8F5]/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#0A0A0A] backdrop-blur-md">
@@ -115,7 +115,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         aria-valuemax={100}
         aria-valuenow={Math.round(position)}
         onKeyDown={handleKeyDown}
-        className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-hairline bg-[#FAF8F5] text-[#0A0A0A] shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+        className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-hairline bg-[#FAF8F5] text-[#0A0A0A] shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
         style={{ left: `${position}%` }}
       >
         <ChevronLeft className="h-3.5 w-3.5" />

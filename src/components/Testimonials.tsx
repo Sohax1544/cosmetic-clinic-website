@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useAnimationFrame, useReducedMotion } from 'framer-motion';
 import { Star, Quote, CheckCircle } from 'lucide-react';
 import { clientConfig, Testimonial } from '../client.config';
+import { EditorialPlate } from './EditorialPlate';
 import { cn } from '@/lib/utils';
 
 const TestimonialCard: React.FC<{ item: Testimonial; interactive?: boolean }> = ({ item, interactive }) => (
   <article
     tabIndex={interactive ? 0 : undefined}
     aria-hidden={interactive ? undefined : true}
-    className="bg-[#F7F5F1] p-8 sm:p-9 border border-hairline rounded-2xl flex flex-col justify-between relative transition-all duration-300 hover:border-[#C9A876] hover:shadow-sm focus:outline-none focus-visible:border-[#C9A876] focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+    className="bg-[#F7F5F1] p-8 sm:p-9 border border-hairline rounded-2xl flex flex-col justify-between relative transition-all duration-300 hover:border-[#D6C0A0] hover:shadow-sm focus:outline-none focus-visible:border-[#D6C0A0] focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
   >
     <div>
       {/* Quote Icon and Rating Stars */}
@@ -22,7 +23,7 @@ const TestimonialCard: React.FC<{ item: Testimonial; interactive?: boolean }> = 
       </div>
 
       {/* Patient Review Quote */}
-      <p className="text-sm sm:text-base text-[#262626] font-sans font-normal leading-relaxed mb-6">
+      <p className="text-sm sm:text-base text-ink-700 font-display font-normal leading-relaxed mb-6">
         "{item.quote}"
       </p>
     </div>
@@ -102,6 +103,16 @@ const MarqueeColumn: React.FC<MarqueeColumnProps> = ({ items, pixelsPerSecond, p
   );
 };
 
+/**
+ * What patients say.
+ *
+ * The reviews themselves, their content, the per-column speeds and the hover/focus pause
+ * are unchanged. What changed is that the section no longer presents as three columns of
+ * identical text cards — a review widget's silhouette — but as a patient-experience
+ * spread: one editorial photograph establishing the room, the reviews set beside it. The
+ * marquee still does the work it was built for, and `prefers-reduced-motion` still gets
+ * the static list.
+ */
 export const Testimonials: React.FC = () => {
   const { testimonials, testimonialMarquee, testimonialsSection } = clientConfig;
   const reduceMotion = useReducedMotion();
@@ -131,7 +142,12 @@ export const Testimonials: React.FC = () => {
         .map((id) => byId.get(id))
         .filter((item): item is Testimonial => Boolean(item)),
     }))
-    .filter((column) => column.items.length > 0);
+    .filter((column) => column.items.length > 0)
+    // Two columns, not three. The section now gives a third of its width to the
+    // photograph, and a third text column inside what is left would be narrower than a
+    // comfortable reading measure. Every marquee column carries the full review set, so
+    // dropping one loses no review — only a duplicate.
+    .slice(0, 2);
 
   const marqueeMask =
     'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)';
@@ -147,54 +163,72 @@ export const Testimonials: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-3 mb-3">
-            <div className="w-8 h-[1px] bg-[#C9A876]" />
-            <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/70">
+            <div className="w-8 h-[1px] bg-[#D6C0A0]" />
+            <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/85">
               {testimonialsSection.tag}
             </span>
-            <div className="w-8 h-[1px] bg-[#C9A876]" />
+            <div className="w-8 h-[1px] bg-[#D6C0A0]" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-[#0A0A0A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-[#2A2622] tracking-tight mb-4">
             {testimonialsSection.title}
           </h2>
-          <p className="text-sm text-[#525252] font-normal leading-relaxed">
+          <p className="text-sm text-ink-500 font-normal leading-relaxed">
             {testimonialsSection.subtitle}
           </p>
         </div>
 
-        {reduceMotion ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((item) => (
-              <TestimonialCard key={item.id} item={item} />
-            ))}
+        {/* Patient experience, then the reviews. The photograph is the section's one
+            visual anchor and carries about a third of its weight; setting it in the same
+            editorial column system as the rest of the page is what stops the reviews
+            reading as a review widget. It is a full-height portrait crop beside the
+            marquee on wide screens and a 4:5 plate above it on narrow ones, and it is a
+            reservation for real photography rather than a decorative panel. */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="relative lg:col-span-4">
+            <EditorialPlate
+              label="PLACEHOLDER — PATIENT EXPERIENCE"
+              objectPosition="center"
+              className="aspect-[4/5] w-full lg:absolute lg:inset-0 lg:aspect-auto"
+            />
           </div>
-        ) : (
-          <div
-            className="relative h-[540px] sm:h-[600px] lg:h-[660px] overflow-hidden"
-            style={{ maskImage: marqueeMask, WebkitMaskImage: marqueeMask }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocus={() => setPaused(true)}
-            onBlur={(event) => {
-              const next = event.relatedTarget as Node | null;
-              if (!next || !event.currentTarget.contains(next)) setPaused(false);
-            }}
-          >
-            <div className="grid h-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {columns.map((column, index) => (
-                <div
-                  key={index}
-                  className={cn('h-full', index === 1 && 'hidden sm:block', index === 2 && 'hidden lg:block')}
-                >
-                  <MarqueeColumn
-                    items={column.items}
-                    pixelsPerSecond={column.pixelsPerSecond}
-                    paused={paused || !inView}
-                  />
+
+          <div className="lg:col-span-8">
+            {reduceMotion ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {testimonials.map((item) => (
+                  <TestimonialCard key={item.id} item={item} />
+                ))}
+              </div>
+            ) : (
+              <div
+                className="relative h-[540px] sm:h-[600px] lg:h-[660px] overflow-hidden"
+                style={{ maskImage: marqueeMask, WebkitMaskImage: marqueeMask }}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+                onFocus={() => setPaused(true)}
+                onBlur={(event) => {
+                  const next = event.relatedTarget as Node | null;
+                  if (!next || !event.currentTarget.contains(next)) setPaused(false);
+                }}
+              >
+                <div className="grid h-full grid-cols-1 gap-6 sm:grid-cols-2">
+                  {columns.map((column, index) => (
+                    <div
+                      key={index}
+                      className={cn('h-full', index === 1 && 'hidden sm:block')}
+                    >
+                      <MarqueeColumn
+                        items={column.items}
+                        pixelsPerSecond={column.pixelsPerSecond}
+                        paused={paused || !inView}
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
-        )}
+        </div>
 
         {/* Clinical Audit Note */}
         <div className="mt-12 text-center text-xs text-ink-400">

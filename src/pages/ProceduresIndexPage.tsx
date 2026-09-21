@@ -50,12 +50,12 @@ export const ProceduresIndexPage: React.FC = () => {
 
           <div className="mt-8 max-w-3xl">
             <div className="mb-3 flex items-center gap-3">
-              <div className="h-[1px] w-8 bg-[#C9A876]" />
-              <span className="text-xs font-medium uppercase tracking-widest text-[#0A0A0A]/70">
+              <div className="h-[1px] w-8 bg-[#D6C0A0]" />
+              <span className="text-xs font-medium uppercase tracking-widest text-[#0A0A0A]/85">
                 {proceduresIndexPage.tag}
               </span>
             </div>
-            <h1 className="text-4xl leading-[1.08] tracking-[-0.025em] text-[#0A0A0A] sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-display leading-[1.08] tracking-[-0.015em] text-[#2A2622] sm:text-5xl lg:text-6xl">
               {proceduresIndexPage.title}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
@@ -77,10 +77,10 @@ export const ProceduresIndexPage: React.FC = () => {
                 onClick={() => setActiveCategory(category.id)}
                 aria-pressed={active}
                 className={cn(
-                  'rounded-md border px-3.5 py-2 text-[10px] font-medium uppercase tracking-widest transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]',
+                  'rounded-md border px-3.5 py-2 text-[10px] font-medium uppercase tracking-widest transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]',
                   active
                     ? 'border-[#0A0A0A] bg-[#0A0A0A] text-[#FAF8F5]'
-                    : 'border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#C9A876]',
+                    : 'border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#D6C0A0]',
                 )}
               >
                 {category.label}
@@ -103,7 +103,7 @@ export const ProceduresIndexPage: React.FC = () => {
               {filtered.map((treatment) => (
                 <article
                   key={treatment.id}
-                  className="group flex flex-col border border-hairline bg-[#FAF8F5] transition-all duration-300 hover:border-[#C9A876] hover:shadow-[0_10px_30px_-12px_rgba(10,10,10,0.18)]"
+                  className="group flex flex-col border border-hairline bg-[#FAF8F5] transition-all duration-300 hover:border-[#D6C0A0] hover:shadow-[0_10px_30px_-12px_rgba(10,10,10,0.18)]"
                 >
                   {/* Media slot. A real photograph replaces the tonal plate the moment a
                       procedure has `previewImage` set in client.config.ts — the category
@@ -132,7 +132,7 @@ export const ProceduresIndexPage: React.FC = () => {
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
-                    <h2 className="text-xl leading-snug text-[#0A0A0A]">{treatment.title}</h2>
+                    <h2 className="text-xl leading-snug text-[#2A2622]">{treatment.title}</h2>
                     <p className="mt-2 text-sm leading-relaxed text-ink-500">
                       {treatment.subtitle}
                     </p>
@@ -170,7 +170,7 @@ export const ProceduresIndexPage: React.FC = () => {
           {/* Closing CTA */}
           <div className="mt-16 flex flex-col items-start gap-5 border-t border-[#0A0A0A]/15 pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-2xl text-[#0A0A0A] sm:text-3xl">Not sure where to start?</h2>
+              <h2 className="text-2xl text-[#2A2622] sm:text-3xl">Not sure where to start?</h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-500">
                 Send us a message describing what bothers you. A DHA-licensed physician will
                 tell you which of these procedures is worth doing — and which are not.
@@ -182,7 +182,7 @@ export const ProceduresIndexPage: React.FC = () => {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 shrink-0 items-center gap-2.5 bg-[#C9A876] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {treatmentsSection.whatsappCtaLabel}

@@ -15,7 +15,7 @@ export const NotFoundPage: React.FC = () => {
         <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#806334]">
           404
         </span>
-        <h1 className="mt-4 text-3xl leading-tight tracking-[-0.02em] text-[#0A0A0A] sm:text-4xl">
+        <h1 className="mt-4 font-display text-3xl leading-tight tracking-[-0.015em] text-[#2A2622] sm:text-4xl">
           We couldn&rsquo;t find that page.
         </h1>
         <p className="mt-4 text-base leading-relaxed text-ink-500">
@@ -26,13 +26,13 @@ export const NotFoundPage: React.FC = () => {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/procedures"
-            className="inline-flex min-h-11 items-center gap-2.5 bg-[#C9A876] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
+            className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
           >
             All procedures
           </Link>
           <Link
             to="/"
-            className="inline-flex min-h-11 items-center gap-2.5 border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#C9A876] hover:text-[#806334]"
+            className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home

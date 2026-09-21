@@ -15,7 +15,7 @@ export const ManifestoStats: React.FC = () => {
         
         {/* Top Header Label */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-8 h-[1px] bg-[#C9A876]" />
+          <div className="w-8 h-[1px] bg-[#D6C0A0]" />
           <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/70">
             {manifesto.tag}
           </span>
@@ -26,7 +26,7 @@ export const ManifestoStats: React.FC = () => {
           
           {/* Bold Serif Headline Quote */}
           <div className="lg:col-span-7">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal text-[#0A0A0A] leading-[1.18] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal text-[#2A2622] leading-[1.18] tracking-tight">
               {manifesto.title.split('. ')[0]}. <br />
               <span className="text-gold-text font-sans font-light">
                 {manifesto.title.split('. ')[1] || 'We celebrate the nuanced.'}
@@ -50,7 +50,7 @@ export const ManifestoStats: React.FC = () => {
             <p className="text-base sm:text-lg text-[#525252] leading-relaxed font-normal mb-6">
               {manifesto.body}
             </p>
-            <p className="text-sm text-ink-400 leading-relaxed border-l-2 border-[#C9A876]/60 pl-4 py-1 font-sans break-words">
+            <p className="text-sm text-ink-400 leading-relaxed border-l-2 border-[#D6C0A0]/60 pl-4 py-1 font-sans break-words">
               {manifesto.pullQuote}
             </p>
             <div className="mt-4 text-xs font-medium tracking-widest uppercase text-[#0A0A0A]">

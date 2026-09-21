@@ -30,26 +30,26 @@ export const Footer: React.FC = () => {
 
           {/* Col 1: Clinic Brand & Philosophy */}
           <div className="lg:col-span-4">
-            <h3 className="font-sans text-xl sm:text-2xl tracking-[0.16em] uppercase font-medium mb-3">
+            <h3 className="font-display text-xl sm:text-2xl tracking-[0.16em] uppercase font-medium mb-3">
               {clinic.name}
             </h3>
             <p className="text-xs font-medium tracking-widest uppercase text-[#C9A876] mb-6">
               {clinic.tagline}
             </p>
-            <p className="text-xs sm:text-sm text-[#A3A3A3] font-normal leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-ink-300 font-normal leading-relaxed mb-6">
               {clinic.subtitle}
             </p>
 
             {/* Direct WhatsApp Concierge Hotline */}
             <div className="p-4 bg-[#FAF8F5]/5 border border-[#FAF8F5]/15 inline-block w-full">
-              <span className="text-[10px] font-medium tracking-widest uppercase text-[#A3A3A3] block mb-1">
+              <span className="text-[10px] font-medium tracking-widest uppercase text-ink-300 block mb-1">
                 {footer.whatsappLabel}
               </span>
               <a
                 href={clientConfig.getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-sans font-medium text-[#FAF8F5] hover:text-[#C9A876] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-display font-medium text-[#FAF8F5] hover:text-[#C9A876] transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4 text-[#C9A876]" />
                 <span>{clinic.whatsappDisplay}</span>
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-medium tracking-widest uppercase text-[#FAF8F5] mb-4">
               {footer.exploreLabel}
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#A3A3A3] font-normal">
+            <ul className="space-y-3 text-xs sm:text-sm text-ink-300 font-normal">
               {footer.exploreLinks.map((link) => (
                 <li key={link.label}>
                   <Link to={resolveHref(link.href, pathname)} className="hover:text-[#C9A876] transition-colors">{link.label}</Link>
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-medium tracking-widest uppercase text-[#FAF8F5] mb-4">
               {footer.protocolsLabel}
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#A3A3A3] font-normal">
+            <ul className="space-y-3 text-xs sm:text-sm text-ink-300 font-normal">
               {footer.protocolsLinks.map((link) => (
                 <li key={link.label}>
                   <Link to={resolveHref(link.href, pathname)} className="hover:text-[#C9A876] transition-colors">{link.label}</Link>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
               {footer.suiteLabel}
             </h4>
 
-            <div className="space-y-3 text-xs sm:text-sm text-[#A3A3A3] font-normal">
+            <div className="space-y-3 text-xs sm:text-sm text-ink-300 font-normal">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C9A876] flex-shrink-0 mt-0.5" />
                 <span>{clinic.address}</span>
@@ -121,20 +121,20 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Accreditations and Regulatory Strip */}
-        <div className="py-8 border-b border-[#FAF8F5]/15 flex flex-wrap items-center justify-between gap-4 text-xs text-[#A3A3A3]">
+        <div className="py-8 border-b border-[#FAF8F5]/15 flex flex-wrap items-center justify-between gap-4 text-xs text-ink-300">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#C9A876]" />
             <span className="text-[#FAF8F5] font-medium">{footer.accreditationLabel}</span>
             <span>{clinic.accreditations.join(" · ")}</span>
           </div>
 
-          <div className="text-[11px] text-[#A3A3A3]">
+          <div className="text-[11px] text-ink-300">
             {footer.note}
           </div>
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="flex flex-col items-center justify-between gap-4 pt-8 pb-[calc(6rem+env(safe-area-inset-bottom))] text-xs text-[#A3A3A3] sm:flex-row sm:pb-[calc(5rem+env(safe-area-inset-bottom))]">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 pb-[calc(6rem+env(safe-area-inset-bottom))] text-xs text-ink-300 sm:flex-row sm:pb-[calc(5rem+env(safe-area-inset-bottom))]">
           <div>
             © {new Date().getFullYear()} {clinic.name}. {footer.copyrightSuffix}
           </div>

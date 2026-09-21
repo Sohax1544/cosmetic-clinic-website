@@ -28,7 +28,7 @@ const SectionLabel: React.FC<{ children: React.ReactNode; onTonal?: boolean }> =
   onTonal,
 }) => (
   <div className="mb-6 flex items-center gap-3">
-    <span className="h-[1px] w-8 bg-[#C9A876]" />
+    <span className="h-[1px] w-8 bg-[#D6C0A0]" />
     <span
       className={`text-[10px] font-medium uppercase tracking-[0.2em] ${
         onTonal ? 'text-[#0A0A0A]' : 'text-[#806334]'
@@ -111,7 +111,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
             </span>
           </div>
 
-          <h1 className="text-4xl font-normal leading-[1.08] tracking-[-0.025em] text-[#0A0A0A] sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-normal leading-[1.08] tracking-[-0.015em] text-[#2A2622] sm:text-5xl lg:text-6xl">
             {treatment.title}
           </h1>
           <p className="mt-3 text-lg text-[#806334]">{treatment.subtitle}</p>
@@ -124,14 +124,14 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
               href={clientConfig.getWhatsAppUrl(bookMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex min-h-11 items-center gap-2.5 bg-[#C9A876] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-all duration-300 hover:bg-[#B89660] hover:shadow-[0_8px_30px_rgba(201,168,118,0.25)]"
+              className="group inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-all duration-300 hover:bg-[#B89660] hover:shadow-[0_8px_30px_rgba(214, 192, 160,0.25)]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {procedurePage.bookLabel}
             </a>
             <a
               href={`tel:${clinic.phone.replace(/\s/g, '')}`}
-              className="inline-flex min-h-11 items-center gap-2.5 border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#C9A876] hover:text-[#806334]"
+              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
             >
               <Phone className="h-4 w-4" />
               {clinic.phone}
@@ -256,7 +256,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
                       <ul className="space-y-3">
                         {(details?.suitableFor ?? []).map((s) => (
                           <li key={s} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink-500">
-                            <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-[#C9A876]" />
+                            <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-[#D6C0A0]" />
                             {s}
                           </li>
                         ))}
@@ -312,7 +312,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
                     <div className="text-[10px] font-medium uppercase tracking-widest text-[#806334]">
                       {String(i + 1).padStart(2, '0')}
                     </div>
-                    <h3 className="mt-2 text-base text-[#0A0A0A]">{step.title}</h3>
+                    <h3 className="mt-2 text-base text-[#2A2622]">{step.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-ink-500">{step.description}</p>
                   </div>
                 );
@@ -394,13 +394,13 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div>
             <h2 className="text-2xl text-[#FAF8F5] sm:text-3xl">{procedurePage.ctaTitle}</h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#A3A3A3]">{procedurePage.ctaBody}</p>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-300">{procedurePage.ctaBody}</p>
           </div>
           <a
             href={clientConfig.getWhatsAppUrl(bookMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 flex-shrink-0 items-center gap-2.5 bg-[#C9A876] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
+            className="inline-flex min-h-11 flex-shrink-0 items-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:bg-[#B89660]"
           >
             <WhatsAppIcon className="h-4 w-4" />
             {procedurePage.bookLabel}
@@ -418,7 +418,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
                 <Link
                   key={r.slug}
                   to={`/procedures/${r.slug}`}
-                  className="group border border-hairline bg-[#FAF8F5] p-6 transition-all duration-300 hover:border-[#C9A876] hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
+                  className="group border border-hairline bg-[#FAF8F5] p-6 transition-all duration-300 hover:border-[#D6C0A0] hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
                 >
                   <div className="text-[10px] font-medium uppercase tracking-widest text-[#806334]">
                     {clientConfig.treatmentsSection.categories.find((c) => c.id === r.category)?.label}

@@ -35,12 +35,12 @@ export const ResultsSection: React.FC = () => {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="mb-10 max-w-2xl">
           <div className="mb-3 flex items-center gap-3">
-            <div className="h-[1px] w-8 bg-[#C9A876]" />
-            <span className="text-xs font-medium uppercase tracking-widest text-[#0A0A0A]/70">
+            <div className="h-[1px] w-8 bg-[#D6C0A0]" />
+            <span className="text-xs font-medium uppercase tracking-widest text-[#0A0A0A]/85">
               {resultsSection.tag}
             </span>
           </div>
-          <h2 className="text-3xl tracking-tight text-[#0A0A0A] sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl tracking-tight text-[#2A2622] sm:text-4xl md:text-5xl">
             {resultsSection.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-500">{resultsSection.subtitle}</p>

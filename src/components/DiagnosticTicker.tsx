@@ -26,12 +26,16 @@ export const DiagnosticTicker: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // The top padding is deliberately tighter than the bottom. `TreatmentsGrid` directly
+  // above spends vertical space on headroom for its hover-expanded card, and this is where
+  // that space is paid back — otherwise the two sections together leave a visible hole
+  // between the treatments carousel and this band.
   return (
     <section 
       id="diagnostics"
       ref={sectionRef}
       aria-label="Diagnostic Biomarkers and Clinical Differentiators"
-      className="relative w-full py-24 sm:py-32 bg-[#0A0A0A] text-[#FAF8F5] overflow-hidden border-b border-hairline/20"
+      className="relative w-full pt-10 pb-24 sm:pt-14 sm:pb-32 bg-[#0A0A0A] text-[#FAF8F5] overflow-hidden border-b border-hairline/20"
     >
       {/* Warm Moody Gradient Background with Macro Cellular Underlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -46,7 +50,7 @@ export const DiagnosticTicker: React.FC = () => {
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse at 50% 50%, rgba(201, 168, 118, 0.22) 0%, rgba(166, 130, 79, 0.10) 38%, rgba(10, 10, 10, 0.92) 75%, #0A0A0A 100%),
+              radial-gradient(ellipse at 50% 50%, rgba(214, 192, 160, 0.22) 0%, rgba(166, 130, 79, 0.10) 38%, rgba(10, 10, 10, 0.92) 75%, #0A0A0A 100%),
               linear-gradient(to bottom, #0A0A0A 0%, transparent 20%, transparent 80%, #0A0A0A 100%)
             `
           }}
@@ -58,18 +62,18 @@ export const DiagnosticTicker: React.FC = () => {
         
         {/* Section Header */}
         <div className="inline-flex items-center gap-3 mb-3">
-          <div className="w-8 h-[1px] bg-[#C9A876]" />
+          <div className="w-8 h-[1px] bg-[#D6C0A0]" />
           <span className="text-xs font-medium tracking-widest uppercase text-[#C9A876]">
             {diagnosticTicker.tag}
           </span>
-          <div className="w-8 h-[1px] bg-[#C9A876]" />
+          <div className="w-8 h-[1px] bg-[#D6C0A0]" />
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-[#FAF8F5] tracking-tight mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-[#FAF8F5] tracking-tight mb-4">
           {diagnosticTicker.title}
         </h2>
 
-        <p className="text-sm sm:text-base text-[#E5E0D8]/75 font-normal max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base text-[#E5E0D8]/90 font-normal max-w-2xl mx-auto leading-relaxed">
           {diagnosticTicker.subtitle}
         </p>
       </div>
@@ -100,9 +104,9 @@ export const DiagnosticTicker: React.FC = () => {
                 {loopedTags.map((tag, tagIndex) => (
                   <div
                     key={`tag-${rowIndex}-${tagIndex}`}
-                    className="group inline-flex items-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 bg-[#FAF8F5]/5 hover:bg-[#FAF8F5]/10 border border-[#E5E0D8]/20 hover:border-[#C9A876]/70 backdrop-blur-md rounded-full text-xs sm:text-sm font-medium tracking-widest uppercase text-[#FAF8F5] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-default shadow-sm"
+                    className="group inline-flex items-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 bg-[#FAF8F5]/5 hover:bg-[#FAF8F5]/10 border border-[#E5E0D8]/20 hover:border-[#D6C0A0]/70 backdrop-blur-md rounded-full text-xs sm:text-sm font-medium tracking-widest uppercase text-[#FAF8F5] transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-default shadow-sm"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A876] group-hover:scale-125 transition-transform" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D6C0A0] group-hover:scale-125 transition-transform" />
                     <span>{tag}</span>
                   </div>
                 ))}
@@ -114,7 +118,7 @@ export const DiagnosticTicker: React.FC = () => {
       </div>
 
       {/* Bottom Subtle Trust Badges */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 mt-14 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-[#E5E0D8]/60">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 mt-14 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-[#E5E0D8]/80">
         <div className="flex items-center gap-2">
           <span>{diagnosticTicker.badges[0]}</span>
         </div>

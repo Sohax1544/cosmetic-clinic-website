@@ -6,7 +6,7 @@
   :root {
     --bg-ivory: #F7F5F1;
     --text-ink: #0A0A0A;
-    --accent-gold: #C9A876;
+    --accent-gold: #D6C0A0;
     --accent-gold-hover: #B89660;
   }
 
@@ -32,7 +32,7 @@
 
   /* Custom luxury text selection */
   ::selection {
-    background: rgba(201, 168, 118, 0.28);
+    background: rgba(214, 192, 160, 0.28);
     color: #0A0A0A;
   }
 }
@@ -153,5 +153,5 @@
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C9A876;
+  background: #D6C0A0;
 }

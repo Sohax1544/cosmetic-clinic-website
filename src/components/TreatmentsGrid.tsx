@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { clientConfig, Treatment } from '../client.config';
 import { WhatsAppIcon } from './WhatsAppIcon';
-import { Clock, Shield, CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Plus } from 'lucide-react';
+import { Clock, CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Plus } from 'lucide-react';
 import { ProcedureDetailDialog } from './ProcedureDetailDialog';
 import { Link } from '../lib/router';
 
@@ -65,19 +65,19 @@ export const TreatmentsGrid: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-[1px] bg-[#C9A876]" />
-              <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/70">
+              <div className="w-8 h-[1px] bg-[#D6C0A0]" />
+              <span className="text-xs font-medium tracking-widest uppercase text-[#0A0A0A]/85">
                 {treatmentsSection.tag}
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans text-[#0A0A0A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-[#2A2622] tracking-tight">
             {treatmentsSection.title}
             </h2>
           </div>
 
           <div className="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto">
             {/* Page Position Indicator */}
-            <div className="flex items-center gap-2 font-sans text-xs text-gold-text tracking-widest uppercase">
+            <div className="flex items-center gap-2 font-display text-xs text-gold-text tracking-widest uppercase">
               <span className="text-sm font-medium text-[#0A0A0A]">
                 {String(currentPage + 1).padStart(2, '0')}
               </span>
@@ -90,14 +90,14 @@ export const TreatmentsGrid: React.FC = () => {
               <button
                 onClick={handlePrev}
                 aria-label={treatmentsSection.prevAriaLabel}
-                className="flex h-11 w-11 items-center justify-center border border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#C9A876] hover:bg-[#C9A876] hover:text-[#0A0A0A] transition-all duration-200 rounded-lg shadow-sm"
+                className="flex h-11 w-11 items-center justify-center border border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#D6C0A0] hover:bg-[#C9A876] hover:text-[#0A0A0A] transition-all duration-200 rounded-lg shadow-sm"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label={treatmentsSection.nextAriaLabel}
-                className="flex h-11 w-11 items-center justify-center border border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#C9A876] hover:bg-[#C9A876] hover:text-[#0A0A0A] transition-all duration-200 rounded-lg shadow-sm"
+                className="flex h-11 w-11 items-center justify-center border border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#D6C0A0] hover:bg-[#C9A876] hover:text-[#0A0A0A] transition-all duration-200 rounded-lg shadow-sm"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -124,12 +124,17 @@ export const TreatmentsGrid: React.FC = () => {
 
         {/* Empty state when a filter matches nothing */}
         {filteredTreatments.length === 0 && (
-          <p className="py-20 text-center text-sm font-normal text-[#525252]">{treatmentsSection.emptyMessage}</p>
+          <p className="py-20 text-center text-sm font-normal text-ink-500">{treatmentsSection.emptyMessage}</p>
         )}
 
-        {/* Full-Page Carousel Viewport: pb provides enough downward room for the expanded card so rounded bottom edges stay visible */}
+        {/* Full-Page Carousel Viewport. The card is clipped at this box's bottom edge, so
+            `pb` is the expanded panel's headroom and has to exceed the tallest panel
+            (duration row + four features + the action row ≈ 250px). It was 280px, which
+            cut the action buttons in half on hover. `-mb` pulls the next section back up
+            so the headroom does not read as a hole in the page; the space this added is
+            taken back out of DiagnosticTicker's top padding instead. */}
         {filteredTreatments.length > 0 && (
-        <div className="relative w-full overflow-hidden pb-[280px] -mb-[170px]">
+        <div className="relative w-full overflow-hidden pb-[360px] -mb-[170px]">
           <div 
             className="flex transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
             style={{
@@ -153,7 +158,7 @@ export const TreatmentsGrid: React.FC = () => {
                     <article
                       onMouseEnter={() => setExpandedId(treatment.id)}
                       onMouseLeave={() => setExpandedId((current) => (current === treatment.id ? null : current))}
-                      className={`group absolute top-0 inset-x-0 z-10 ${expanded ? 'z-30 border-[#C9A876]' : 'border-hairline'} rounded-2xl border text-[#0A0A0A] bg-[#0A0A0A] transition-colors duration-300`}
+                      className={`group absolute top-0 inset-x-0 z-10 ${expanded ? 'z-30 border-[#D6C0A0]' : 'border-hairline'} rounded-2xl border text-[#0A0A0A] bg-[#0A0A0A] transition-colors duration-300`}
                     >
                       {/* Image + scrim, one clipped unit. Inner radius = card 16px − border 1px = 15px,
                           via overflow-hidden AND clip-path so the corner survives GPU layer promotion. */}
@@ -166,22 +171,46 @@ export const TreatmentsGrid: React.FC = () => {
                           className={`h-full w-full object-cover transition-transform duration-1000 ease-out ${expanded ? 'scale-[1.02]' : 'scale-100'} ${treatment.details ? 'cursor-pointer' : ''}`}
                         />
 
-                        {/* Targeted legibility scrim: transparent above ~56%, ramping to ~62% ink only at the base */}
+                        {/* Legibility scrim. Deliberately light: this card sits on an
+                            ivory page and a heavy ink wash read as a dark slab against
+                            the bright hero. It only has to carry two lines now — the
+                            one-liner and the procedure name — so it covers the base and
+                            releases early. */}
                         <div
                           className="absolute inset-0 pointer-events-none"
                           style={{
                             background: `
-                              linear-gradient(to top, rgba(10, 10, 10, 0.62) 0%, rgba(10, 10, 10, 0.58) 30%, rgba(10, 10, 10, 0) 44%)
+                              linear-gradient(to top, rgba(10, 10, 10, 0.52) 0%, rgba(10, 10, 10, 0.34) 20%, rgba(10, 10, 10, 0) 44%)
                             `
                           }}
                         />
+
+                        {/* Resting card: the one-liner and the procedure name, nothing
+                            else.
+                            This sits INSIDE the image container, not on the <article>.
+                            On the article it was `bottom-0` of a box that grows when the
+                            hover panel opens, so the name slid down the card with the
+                            panel instead of staying put. The image container is a fixed
+                            420/440px, so `bottom-0` here is always the foot of the
+                            photograph. */}
+                        <div className="absolute inset-x-0 bottom-0 z-10 p-6 sm:p-8">
+                          <p className="mb-1.5 text-[11px] font-medium uppercase tracking-widest text-[#FBF4E8]">
+                            {treatment.subtitle}
+                          </p>
+                          <h3
+                            onClick={() => treatment.details && onOpenDetails(treatment.id)}
+                            className={`font-display text-xl leading-snug text-[#FAF8F5] line-clamp-2 sm:text-2xl ${treatment.details ? 'cursor-pointer' : ''}`}
+                          >
+                            {treatment.title}
+                          </h3>
+                        </div>
                       </div>
 
                       {/* Hover cue: signals the image/title opens the detail dialog (details only) */}
                       {treatment.details && (
                         <span
                           aria-hidden="true"
-                          className={`pointer-events-none absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#C9A876]/40 bg-[#0A0A0A]/60 text-[#C9A876] backdrop-blur-md transition-opacity duration-300 ${expanded ? 'opacity-100' : 'opacity-0'}`}
+                          className={`pointer-events-none absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#D6C0A0]/40 bg-[#0A0A0A]/60 text-[#C9A876] backdrop-blur-md transition-opacity duration-300 ${expanded ? 'opacity-100' : 'opacity-0'}`}
                         >
                           <Plus className="h-4 w-4" />
                         </span>
@@ -195,32 +224,12 @@ export const TreatmentsGrid: React.FC = () => {
                         </span>
                       </div>
 
-                      {/* Touch-only quick facts: the hover panel is unreachable without a pointer */}
+                      {/* Touch-only quick fact: the hover panel is unreachable without a pointer */}
                       <div className="absolute top-16 left-6 z-10 hidden touch:flex flex-col items-start gap-1.5">
                         <span className="inline-flex max-w-[15rem] items-center gap-1.5 rounded-md border border-hairline bg-[#FAF8F5]/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#0A0A0A] backdrop-blur-md">
                           <Clock className="h-3 w-3 shrink-0 text-[#C9A876]" />
                           <span className="truncate">{treatment.duration}</span>
                         </span>
-                        <span className="inline-flex max-w-[15rem] items-center gap-1.5 rounded-md border border-hairline bg-[#FAF8F5]/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#0A0A0A] backdrop-blur-md">
-                          <Shield className="h-3 w-3 shrink-0 text-[#C9A876]" />
-                          <span className="truncate">{treatment.downtime}</span>
-                        </span>
-                      </div>
-
-                      {/* Text Content: title/description pinned over the image (non-hovered view stays the same) */}
-                      <div className="absolute top-[235px] sm:top-[260px] inset-x-0 p-6 sm:p-8 z-10">
-                        <p className="text-[11px] tracking-widest uppercase text-[#C9A876] font-medium mb-1.5">
-                          {treatment.subtitle}
-                        </p>
-                        <h3
-                          onClick={() => treatment.details && onOpenDetails(treatment.id)}
-                          className={`text-xl sm:text-2xl font-sans text-[#FAF8F5] leading-snug mb-2.5 line-clamp-2 ${treatment.details ? 'cursor-pointer' : ''}`}
-                        >
-                          {treatment.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-[#E5E0D8]/85 font-normal leading-relaxed line-clamp-2">
-                          {treatment.description}
-                        </p>
                       </div>
 
                       {/* Detail content: always mounted (never conditionally rendered). Height and opacity are
@@ -235,24 +244,23 @@ export const TreatmentsGrid: React.FC = () => {
                         className={`overflow-hidden bg-[#FAF8F5] text-[#0A0A0A] rounded-b-[15px] ${expanded ? 'border-t border-hairline' : ''}`}
                       >
                         <div className="p-5 sm:p-6">
-                          {/* Duration & Downtime Badges */}
-                          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-hairline mb-3 text-xs text-[#0A0A0A]">
-                            <div className="flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5 text-[#C9A876] shrink-0" />
-                              <span className="text-[#0A0A0A] leading-snug">{treatment.duration}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <Shield className="w-3.5 h-3.5 text-[#C9A876] shrink-0" />
-                              <span className="text-[#0A0A0A] leading-snug">{treatment.downtime}</span>
-                            </div>
+                          {/* Duration only. Downtime was dropped from this panel: it was
+                              the line that pushed the panel past the carousel's headroom,
+                              and the procedure page states it in full anyway. */}
+                          <div className="flex items-center gap-1.5 pb-3 border-b border-hairline mb-3 text-xs text-[#0A0A0A]">
+                            <Clock className="w-3.5 h-3.5 text-[#C9A876] shrink-0" />
+                            <span className="text-[#0A0A0A] leading-snug">{treatment.duration}</span>
                           </div>
 
-                          {/* Specifics Checklist */}
-                          <div className="space-y-1.5 mb-3">
-                            {treatment.features.slice(0, 2).map((feat, i) => (
-                              <div key={i} className="flex items-center gap-2 text-xs text-[#525252]">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#C9A876] shrink-0" />
-                                <span className="text-[#525252] leading-snug">{feat}</span>
+                          {/* Specifics Checklist. Every feature, not the first two — this
+                              list replaced the prose summary that used to sit above it, so
+                              it carries the description's job now. `slice(0, 2)` was sized
+                              for a panel that also held a paragraph. */}
+                          <div className="mb-3 space-y-1.5">
+                            {treatment.features.map((feat, i) => (
+                              <div key={i} className="flex items-start gap-2 text-xs text-ink-500">
+                                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A876]" />
+                                <span className="leading-snug text-ink-500">{feat}</span>
                               </div>
                             ))}
                           </div>
@@ -263,7 +271,7 @@ export const TreatmentsGrid: React.FC = () => {
                               <Link
                                 to={`/procedures/${treatment.slug}`}
                                 onClick={(event) => event.stopPropagation()}
-                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#C9A876] px-3 py-2.5 text-[11px] font-medium uppercase tracking-wider text-[#0A0A0A] whitespace-nowrap transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+                                className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#D6C0A0] px-3 py-2.5 text-[11px] font-medium uppercase tracking-wider text-[#0A0A0A] whitespace-nowrap transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
                                 aria-label={`${treatmentsSection.detailsLabel} for ${treatment.title}`}
                               >
                                 <span>{treatmentsSection.detailsLabel}</span>
@@ -276,7 +284,7 @@ export const TreatmentsGrid: React.FC = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(event) => event.stopPropagation()}
-                              className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-hairline bg-transparent px-3 py-2.5 text-[11px] font-medium uppercase tracking-wider text-[#0A0A0A] whitespace-nowrap transition-colors hover:border-[#C9A876] hover:text-gold-text focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+                              className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-hairline bg-transparent px-3 py-2.5 text-[11px] font-medium uppercase tracking-wider text-[#0A0A0A] whitespace-nowrap transition-colors hover:border-[#D6C0A0] hover:text-gold-text focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
                             >
                               <WhatsAppIcon className="w-3.5 h-3.5" />
                               <span>{treatmentsSection.whatsappCtaLabel}</span>

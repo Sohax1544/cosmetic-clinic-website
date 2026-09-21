@@ -67,7 +67,7 @@ Please let me know available appointment slots.`;
         <button
           onClick={onClose}
           aria-label="Close consultation modal"
-          className="absolute top-5 right-5 flex h-11 w-11 items-center justify-center text-ink-400 hover:text-[#0A0A0A] transition-colors rounded-full hover:bg-[#EFECE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+          className="absolute top-5 right-5 flex h-11 w-11 items-center justify-center text-ink-400 hover:text-[#0A0A0A] transition-colors rounded-full hover:bg-[#EFECE6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -75,15 +75,15 @@ Please let me know available appointment slots.`;
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#C9A876]" />
+            <span className="w-2 h-2 rounded-full bg-[#D6C0A0]" />
             <span className="text-xs font-medium tracking-widest uppercase text-gold-text">
               BOOKING ENQUIRY
             </span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-sans text-[#0A0A0A] font-normal">
+          <h3 className="text-2xl sm:text-3xl font-display text-[#2A2622] font-normal">
             Tell us what you are interested in
           </h3>
-          <p className="text-xs sm:text-sm text-[#525252] font-normal mt-1">
+          <p className="text-xs sm:text-sm text-ink-500 font-normal mt-1">
             Choose a treatment and a physician if you have a preference, then send the enquiry to our Jumeirah clinic on WhatsApp.
           </p>
         </div>
@@ -101,7 +101,7 @@ Please let me know available appointment slots.`;
                 onClick={() => setSelectedTreatmentId(t.id)}
                 className={`p-3 text-left border rounded-xl transition-all duration-200 flex items-start justify-between gap-2 ${
                   selectedTreatmentId === t.id
-                    ? 'border-[#C9A876] bg-[#FAF8F5] shadow-sm'
+                    ? 'border-[#D6C0A0] bg-[#FAF8F5] shadow-sm'
                     : 'border-hairline bg-[#F7F5F1] hover:border-[#D6CFC3]'
                 }`}
               >
@@ -109,10 +109,10 @@ Please let me know available appointment slots.`;
                   <span className="text-[10px] tracking-widest uppercase text-gold-text block font-medium">
                     {t.subtitle}
                   </span>
-                  <span className="text-xs font-sans text-[#0A0A0A] font-medium block">
+                  <span className="text-xs font-display text-[#0A0A0A] font-medium block">
                     {t.title}
                   </span>
-                  <span className="text-[11px] font-sans text-ink-400 mt-1 block">
+                  <span className="text-[11px] font-display text-ink-400 mt-1 block">
                     {t.priceGuide}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ Please let me know available appointment slots.`;
         </div>
 
         {/* Treatment Quick Specs Bar */}
-        <div className="p-4 bg-[#EFECE6] border border-hairline rounded-xl mb-6 grid grid-cols-3 gap-4 text-xs text-[#525252]">
+        <div className="p-4 bg-[#EFECE6] border border-hairline rounded-xl mb-6 grid grid-cols-3 gap-4 text-xs text-ink-500">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#C9A876]" />
             <div>
@@ -161,7 +161,7 @@ Please let me know available appointment slots.`;
                 onClick={() => setSelectedDoctorId(doc.id)}
                 className={`p-3 text-left border rounded-xl transition-all duration-200 flex items-center gap-3 ${
                   selectedDoctorId === doc.id
-                    ? 'border-[#C9A876] bg-[#FAF8F5]'
+                    ? 'border-[#D6C0A0] bg-[#FAF8F5]'
                     : 'border-hairline bg-[#F7F5F1] hover:border-[#D6CFC3]'
                 }`}
               >
@@ -171,7 +171,7 @@ Please let me know available appointment slots.`;
                   className="w-10 h-10 object-cover border border-hairline rounded-lg"
                 />
                 <div className="overflow-hidden">
-                  <span className="text-xs font-sans font-medium text-[#0A0A0A] block truncate">
+                  <span className="text-xs font-display font-medium text-[#0A0A0A] block truncate">
                     {doc.name.split(',')[0]}
                   </span>
                   <span className="text-[10px] text-ink-400 block truncate">
@@ -202,7 +202,7 @@ Please let me know available appointment slots.`;
                 className={`py-2 px-3 text-xs tracking-widest uppercase border rounded-lg text-center transition-colors ${
                   selectedTimeframe === time
                     ? 'border-[#0A0A0A] bg-[#0A0A0A] text-[#FAF8F5]'
-                    : 'border-hairline bg-[#F7F5F1] text-[#525252] hover:bg-[#EFECE6]'
+                    : 'border-hairline bg-[#F7F5F1] text-ink-500 hover:bg-[#EFECE6]'
                 }`}
               >
                 {time}
@@ -221,7 +221,7 @@ Please let me know available appointment slots.`;
             value={patientNotes}
             onChange={(e) => setPatientNotes(e.target.value)}
             placeholder="e.g. Interested in natural tear trough restoration and jawline balance..."
-            className="w-full px-4 py-3 bg-[#FAF8F5] border border-hairline rounded-xl text-xs text-[#0A0A0A] placeholder:text-ink-400 focus:outline-none focus:border-[#C9A876]"
+            className="w-full px-4 py-3 bg-[#FAF8F5] border border-hairline rounded-xl text-xs text-[#0A0A0A] placeholder:text-ink-400 focus:outline-none focus:border-[#D6C0A0]"
           />
         </div>
 
@@ -241,7 +241,7 @@ Please let me know available appointment slots.`;
 
             <button
               onClick={handleLaunchWhatsApp}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#C9A876] text-[#0A0A0A] text-xs font-medium tracking-widest uppercase hover:bg-[#B89660] transition-colors rounded-xl"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#D6C0A0] text-[#0A0A0A] text-xs font-medium tracking-widest uppercase hover:bg-[#B89660] transition-colors rounded-xl"
             >
               <WhatsAppIcon className="w-4 h-4 text-[#0A0A0A]" />
               <span>Connect on WhatsApp</span>

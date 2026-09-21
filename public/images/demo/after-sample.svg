@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample after image placeholder">
   <rect width="1200" height="900" fill="#EFECE6"/>
-  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#C9A876" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#D6C0A0" stroke-opacity="0.55" stroke-width="2"/>
   <!-- Copy sits in this plate's OUTER half (right of the 50% divider) and in the LOWER band,
        staggered against the before plate's notice so the two do not read as a duplicated
        label at the default position.

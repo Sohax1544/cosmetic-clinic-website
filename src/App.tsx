@@ -77,7 +77,7 @@ export function App() {
   // the previous route's title and then overwrites the page's own value.
 
   return (
-    <div className="flex min-h-screen flex-col justify-between bg-[#F7F5F1] text-[#0A0A0A] selection:bg-[#C9A876]/30 selection:text-[#0A0A0A]">
+    <div className="flex min-h-screen flex-col justify-between bg-[#F7F5F1] text-[#0A0A0A] selection:bg-[#D6C0A0]/30 selection:text-[#0A0A0A]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#0A0A0A] focus:px-4 focus:py-2 focus:text-xs focus:font-medium focus:uppercase focus:tracking-widest focus:text-[#FAF8F5]"
@@ -110,7 +110,7 @@ export function App() {
           <button
             onClick={scrollToTop}
             aria-label="Back to top of page"
-            className="flex h-11 w-11 items-center justify-center border border-hairline bg-[#FAF8F5] text-[#0A0A0A] shadow-md transition-all duration-300 hover:bg-[#C9A876] hover:text-[#0A0A0A]"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-hairline bg-[#FAF8F5] text-[#0A0A0A] shadow-md transition-all duration-300 hover:bg-[#C9A876] hover:text-[#0A0A0A]"
           >
             <ArrowUp className="w-4 h-4" />
           </button>
@@ -121,7 +121,7 @@ export function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Message the clinic on WhatsApp"
-          className="group flex min-h-11 items-center gap-3 border border-[#C9A876]/40 bg-[#0A0A0A] px-4 py-3 text-[#FAF8F5] shadow-xl transition-all duration-300 hover:border-[#C9A876] hover:bg-[#C9A876] hover:text-[#0A0A0A] sm:hidden"
+          className="group flex min-h-11 items-center gap-3 rounded-xl border border-[#D6C0A0]/40 bg-[#0A0A0A] px-4 py-3 text-[#FAF8F5] shadow-xl transition-all duration-300 hover:border-[#D6C0A0] hover:bg-[#C9A876] hover:text-[#0A0A0A] sm:hidden"
         >
           <WhatsAppIcon className="w-4 h-4 text-[#C9A876] transition-colors group-hover:text-[#0A0A0A]" />
           <span className="hidden text-xs font-medium uppercase tracking-widest sm:inline">

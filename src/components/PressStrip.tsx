@@ -26,7 +26,7 @@ export const PressStrip: React.FC = () => {
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10">
           <div className="shrink-0">
             <div className="mb-2 flex items-center gap-3">
-              <div className="h-[1px] w-8 bg-[#C9A876]" />
+              <div className="h-[1px] w-8 bg-[#D6C0A0]" />
               <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink-400">
                 {press.tag}
               </span>
@@ -37,7 +37,7 @@ export const PressStrip: React.FC = () => {
           <ul className="flex flex-1 flex-wrap items-center gap-x-10 gap-y-5">
             {press.items.map((item) => {
               const wordmark = (
-                <span className="font-sans text-lg tracking-[0.08em] text-[#0A0A0A]/70 transition-colors group-hover:text-[#0A0A0A] sm:text-xl">
+                <span className="font-display text-lg tracking-[0.08em] text-[#0A0A0A]/85 transition-colors group-hover:text-[#0A0A0A] sm:text-xl">
                   {item.name}
                 </span>
               );
@@ -54,7 +54,7 @@ export const PressStrip: React.FC = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A876]"
+                      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]"
                     >
                       {wordmark}
                       {note}

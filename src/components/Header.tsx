@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
   const overHeroScrim = isLightHero
     ? 'linear-gradient(180deg, rgba(250, 246, 239, 0.34) 0%, rgba(250, 246, 239, 0.14) 55%, rgba(250, 246, 239, 0) 100%)'
-    : 'linear-gradient(180deg, rgba(10, 10, 10, 0.42) 0%, rgba(10, 10, 10, 0.16) 55%, rgba(10, 10, 10, 0) 100%)';
+    : 'linear-gradient(180deg, rgba(42, 38, 34, 0.42) 0%, rgba(42, 38, 34, 0.16) 55%, rgba(42, 38, 34, 0) 100%)';
 
   // The opaque bar. Also the resting state on every page without a hero behind the top.
   const solidBarClass =
@@ -193,7 +193,7 @@ export const Header: React.FC<HeaderProps> = () => {
             aria-label={navigation.ctaAriaLabel}
             className={`rounded-xl inline-flex h-11 shrink-0 items-center justify-center gap-2 whitespace-nowrap border px-3 text-[12px] font-medium uppercase tracking-[0.16em] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0] sm:h-auto sm:px-4 sm:py-2.5 ${
               !isTransparentHeader || isLightHero
-                ? 'border-[#0A0A0A]/80 bg-[#0A0A0A] text-[#FAF8F5] hover:bg-[#D6C0A0] hover:border-[#D6C0A0] hover:text-[#0A0A0A]'
+                ? 'border-[#2A2622]/80 bg-[#2A2622] text-[#FAF8F5] hover:bg-[#D6C0A0] hover:border-[#D6C0A0] hover:text-[#0A0A0A]'
                 : 'border-[#FAF8F5]/60 bg-transparent text-[#FAF8F5] hover:border-[#D6C0A0] hover:text-[#D6C0A0] hover:bg-[#FAF8F5]/5'
             }`}
           >
@@ -254,7 +254,7 @@ export const Header: React.FC<HeaderProps> = () => {
             <a
               href={telHref}
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-xl flex w-full items-center justify-center gap-2.5 border border-[#0A0A0A] py-3.5 text-[12px] font-medium uppercase tracking-[0.16em] text-[#0A0A0A]"
+              className="rounded-xl flex w-full items-center justify-center gap-2.5 border border-[#2A2622] py-3.5 text-[12px] font-medium uppercase tracking-[0.16em] text-[#0A0A0A]"
             >
               <Phone className="h-4 w-4" />
               <span>{clinic.phone}</span>

@@ -71,7 +71,7 @@ export const TeamGrid: React.FC = () => {
                   />
 
                   {/* Gradient Scrim for Text Contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/20 to-transparent opacity-85" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2A2622]/90 via-[#2A2622]/20 to-transparent opacity-85" />
 
                   {/* Overlay Name & Title */}
                   <div className="absolute bottom-4 left-4 right-4 z-10 text-[#FAF8F5]">
@@ -135,7 +135,7 @@ export const TeamGrid: React.FC = () => {
         {/* Doctor Bio Modal in Full Color with Rounded Corners */}
         {selectedDoctor && createPortal(
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0A0A0A]/70 backdrop-blur-sm animate-fade-in"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2A2622]/70 backdrop-blur-sm animate-fade-in"
             onClick={() => setSelectedDoctor(null)}
           >
             <div

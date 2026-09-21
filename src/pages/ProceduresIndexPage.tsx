@@ -79,7 +79,7 @@ export const ProceduresIndexPage: React.FC = () => {
                 className={cn(
                   'rounded-md border px-3.5 py-2 text-[10px] font-medium uppercase tracking-widest transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6C0A0]',
                   active
-                    ? 'border-[#0A0A0A] bg-[#0A0A0A] text-[#FAF8F5]'
+                    ? 'border-[#2A2622] bg-[#2A2622] text-[#FAF8F5]'
                     : 'border-hairline bg-[#FAF8F5] text-[#0A0A0A] hover:border-[#D6C0A0]',
                 )}
               >
@@ -103,7 +103,7 @@ export const ProceduresIndexPage: React.FC = () => {
               {filtered.map((treatment) => (
                 <article
                   key={treatment.id}
-                  className="group flex flex-col border border-hairline bg-[#FAF8F5] transition-all duration-300 hover:border-[#D6C0A0] hover:shadow-[0_10px_30px_-12px_rgba(10,10,10,0.18)]"
+                  className="group flex flex-col border border-hairline bg-[#FAF8F5] transition-all duration-300 hover:border-[#D6C0A0] hover:shadow-[0_10px_30px_-12px_rgba(42, 38, 34,0.18)]"
                 >
                   {/* Media slot. A real photograph replaces the tonal plate the moment a
                       procedure has `previewImage` set in client.config.ts — the category
@@ -168,7 +168,7 @@ export const ProceduresIndexPage: React.FC = () => {
           )}
 
           {/* Closing CTA */}
-          <div className="mt-16 flex flex-col items-start gap-5 border-t border-[#0A0A0A]/15 pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-16 flex flex-col items-start gap-5 border-t border-[#2A2622]/15 pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-2xl text-[#2A2622] sm:text-3xl">Not sure where to start?</h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-500">

@@ -32,7 +32,7 @@ export const NotFoundPage: React.FC = () => {
           </Link>
           <Link
             to="/"
-            className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
+            className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#2A2622] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home

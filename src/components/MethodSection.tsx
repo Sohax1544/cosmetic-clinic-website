@@ -65,7 +65,7 @@ export const MethodSection: React.FC = () => {
               <div>
                 
                 {/* Visual Image Frame (Placeholder image remains fully visible & bright at all times) */}
-                <div className="relative w-full h-80 sm:h-96 overflow-hidden rounded-t-2xl bg-[#0A0A0A] cursor-pointer">
+                <div className="relative w-full h-80 sm:h-96 overflow-hidden rounded-t-2xl bg-[#2A2622] cursor-pointer">
                   
                   {/* Background Image (Always clear, sharp and bright) */}
                   <img
@@ -76,10 +76,10 @@ export const MethodSection: React.FC = () => {
                   />
 
                   {/* Ambient soft shadow for chip readability */}
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0A0A0A]/35 via-transparent to-[#0A0A0A]/40" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#2A2622]/35 via-transparent to-[#2A2622]/40" />
 
                   {/* Subtle soft vignette on hover (non-solid, image stays fully visible through & around) */}
-                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(10,10,10,0.45)_100%)]" />
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(42, 38, 34,0.45)_100%)]" />
 
                 </div>
 

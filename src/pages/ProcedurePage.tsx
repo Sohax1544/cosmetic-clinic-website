@@ -103,7 +103,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-16">
         <div>
           <div className="mb-4 flex flex-wrap items-center gap-2">
-            <span className="bg-[#0A0A0A] px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-[#FAF8F5]">
+            <span className="bg-[#2A2622] px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-[#FAF8F5]">
               {categoryLabel}
             </span>
             <span className="border border-hairline bg-[#FAF8F5] px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-ink-500">
@@ -131,7 +131,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
             </a>
             <a
               href={`tel:${clinic.phone.replace(/\s/g, '')}`}
-              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0A0A0A] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
+              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#2A2622] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors duration-300 hover:border-[#D6C0A0] hover:text-[#806334]"
             >
               <Phone className="h-4 w-4" />
               {clinic.phone}
@@ -390,7 +390,7 @@ export const ProcedurePage: React.FC<ProcedurePageProps> = ({ treatment }) => {
       ) : null}
 
       {/* Closing CTA */}
-      <section className="border-t border-hairline bg-[#0A0A0A]">
+      <section className="border-t border-hairline bg-[#2A2622]">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div>
             <h2 className="text-2xl text-[#FAF8F5] sm:text-3xl">{procedurePage.ctaTitle}</h2>

@@ -113,7 +113,7 @@ export const TreatmentsGrid: React.FC = () => {
               onClick={() => handleCategoryChange(cat.id)}
               className={`inline-flex min-h-11 items-center px-4 py-2 text-xs font-medium tracking-widest uppercase transition-all duration-200 whitespace-nowrap border rounded-full ${
                 activeCategory === cat.id
-                  ? 'border-[#0A0A0A] bg-[#0A0A0A] text-[#FAF8F5]'
+                  ? 'border-[#2A2622] bg-[#2A2622] text-[#FAF8F5]'
                   : 'border-transparent text-ink-400 hover:text-[#0A0A0A] hover:bg-[#EFECE6]'
               }`}
             >
@@ -158,7 +158,7 @@ export const TreatmentsGrid: React.FC = () => {
                     <article
                       onMouseEnter={() => setExpandedId(treatment.id)}
                       onMouseLeave={() => setExpandedId((current) => (current === treatment.id ? null : current))}
-                      className={`group absolute top-0 inset-x-0 z-10 ${expanded ? 'z-30 border-[#D6C0A0]' : 'border-hairline'} rounded-2xl border text-[#0A0A0A] bg-[#0A0A0A] transition-colors duration-300`}
+                      className={`group absolute top-0 inset-x-0 z-10 ${expanded ? 'z-30 border-[#D6C0A0]' : 'border-hairline'} rounded-2xl border text-[#0A0A0A] bg-[#2A2622] transition-colors duration-300`}
                     >
                       {/* Image + scrim, one clipped unit. Inner radius = card 16px − border 1px = 15px,
                           via overflow-hidden AND clip-path so the corner survives GPU layer promotion. */}
@@ -180,7 +180,7 @@ export const TreatmentsGrid: React.FC = () => {
                           className="absolute inset-0 pointer-events-none"
                           style={{
                             background: `
-                              linear-gradient(to top, rgba(10, 10, 10, 0.52) 0%, rgba(10, 10, 10, 0.34) 20%, rgba(10, 10, 10, 0) 44%)
+                              linear-gradient(to top, rgba(42, 38, 34, 0.52) 0%, rgba(42, 38, 34, 0.34) 20%, rgba(42, 38, 34, 0) 44%)
                             `
                           }}
                         />
@@ -210,7 +210,7 @@ export const TreatmentsGrid: React.FC = () => {
                       {treatment.details && (
                         <span
                           aria-hidden="true"
-                          className={`pointer-events-none absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#D6C0A0]/40 bg-[#0A0A0A]/60 text-[#C9A876] backdrop-blur-md transition-opacity duration-300 ${expanded ? 'opacity-100' : 'opacity-0'}`}
+                          className={`pointer-events-none absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#D6C0A0]/40 bg-[#2A2622]/60 text-[#C9A876] backdrop-blur-md transition-opacity duration-300 ${expanded ? 'opacity-100' : 'opacity-0'}`}
                         >
                           <Plus className="h-4 w-4" />
                         </span>

@@ -196,7 +196,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
   const detailsButton = fullPageHref ? (
     <Link
       to={fullPageHref}
-      className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A]"
+      className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#D6C0A0] px-6 py-3.5 text-xs font-medium uppercase tracking-widest text-[#0A0A0A] transition-colors hover:bg-[#B89660] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2A2622]"
     >
       <span>{clientConfig.treatmentsSection.detailsLabel}</span>
       <ArrowRight className="h-4 w-4" />
@@ -229,7 +229,7 @@ export const ProcedureDetailDialog: React.FC<ProcedureDetailDialogProps> = ({ tr
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: reduceMotion ? 0 : 0.2 }}
-        className="absolute inset-0 bg-[#0A0A0A]/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#2A2622]/70 backdrop-blur-sm"
       />
 
       <motion.div

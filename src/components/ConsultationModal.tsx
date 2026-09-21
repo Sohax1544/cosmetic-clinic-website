@@ -50,7 +50,7 @@ Please let me know available appointment slots.`;
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0A0A0A]/75 backdrop-blur-sm overflow-y-auto animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#2A2622]/75 backdrop-blur-sm overflow-y-auto animate-fade-in"
       onClick={onClose}
     >
       <div
@@ -201,7 +201,7 @@ Please let me know available appointment slots.`;
                 onClick={() => setSelectedTimeframe(time)}
                 className={`py-2 px-3 text-xs tracking-widest uppercase border rounded-lg text-center transition-colors ${
                   selectedTimeframe === time
-                    ? 'border-[#0A0A0A] bg-[#0A0A0A] text-[#FAF8F5]'
+                    ? 'border-[#2A2622] bg-[#2A2622] text-[#FAF8F5]'
                     : 'border-hairline bg-[#F7F5F1] text-ink-500 hover:bg-[#EFECE6]'
                 }`}
               >

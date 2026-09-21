@@ -75,7 +75,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       onPointerCancel={handlePointerUp}
       style={{ touchAction: 'pan-y' }}
       className={cn(
-        'relative w-full select-none overflow-hidden rounded-xl border border-hairline bg-[#0A0A0A]',
+        'relative w-full select-none overflow-hidden rounded-xl border border-hairline bg-[#2A2622]',
         aspectClassName,
         className
       )}
@@ -96,7 +96,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         />
       </div>
 
-      <span className="pointer-events-none absolute right-3 top-3 rounded-md border border-[#D6C0A0]/40 bg-[#0A0A0A]/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#C9A876] backdrop-blur-md">
+      <span className="pointer-events-none absolute right-3 top-3 rounded-md border border-[#D6C0A0]/40 bg-[#2A2622]/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#C9A876] backdrop-blur-md">
         {afterLabel}
       </span>
       <span className="pointer-events-none absolute left-3 top-3 rounded-md border border-hairline bg-[#FAF8F5]/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-[#0A0A0A] backdrop-blur-md">

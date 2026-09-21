@@ -35,7 +35,7 @@ export const DiagnosticTicker: React.FC = () => {
       id="diagnostics"
       ref={sectionRef}
       aria-label="Diagnostic Biomarkers and Clinical Differentiators"
-      className="relative w-full pt-10 pb-24 sm:pt-14 sm:pb-32 bg-[#0A0A0A] text-[#FAF8F5] overflow-hidden border-b border-hairline/20"
+      className="relative w-full pt-10 pb-24 sm:pt-14 sm:pb-32 bg-[#2A2622] text-[#FAF8F5] overflow-hidden border-b border-hairline/20"
     >
       {/* Warm Moody Gradient Background with Macro Cellular Underlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -50,8 +50,8 @@ export const DiagnosticTicker: React.FC = () => {
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse at 50% 50%, rgba(214, 192, 160, 0.22) 0%, rgba(166, 130, 79, 0.10) 38%, rgba(10, 10, 10, 0.92) 75%, #0A0A0A 100%),
-              linear-gradient(to bottom, #0A0A0A 0%, transparent 20%, transparent 80%, #0A0A0A 100%)
+              radial-gradient(ellipse at 50% 50%, rgba(214, 192, 160, 0.22) 0%, rgba(166, 130, 79, 0.10) 38%, rgba(42, 38, 34, 0.92) 75%, #2A2622 100%),
+              linear-gradient(to bottom, #2A2622 0%, transparent 20%, transparent 80%, #2A2622 100%)
             `
           }}
         />
@@ -82,8 +82,8 @@ export const DiagnosticTicker: React.FC = () => {
       <div className="relative z-10 flex flex-col gap-4 sm:gap-6 w-full overflow-hidden">
         
         {/* Subtle Edge Fade Scrim (Left & Right) */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#0A0A0A] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#0A0A0A] to-transparent z-20 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#2A2622] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#2A2622] to-transparent z-20 pointer-events-none" />
 
         {/* Dynamic Rows Mapping with Alternating Directions (Paused when offscreen) */}
         {rows.map((tagList, rowIndex) => {

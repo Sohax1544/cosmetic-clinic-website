@@ -80,15 +80,15 @@ export const HeroSequence: React.FC = () => {
     'rounded-xl bg-[#D6C0A0] px-6 text-[12px] font-medium uppercase tracking-[0.15em] text-[#1A1408] ' +
     'shadow-[0_10px_26px_-14px_rgba(58,42,22,0.5)] transition-all duration-300 ' +
     'hover:-translate-y-px hover:bg-[#C9A876] hover:shadow-[0_14px_30px_-14px_rgba(58,42,22,0.55)] ' +
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A] focus-visible:ring-offset-2 ' +
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2A2622] focus-visible:ring-offset-2 ' +
     'focus-visible:ring-offset-[#FAF8F5] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ' +
     'min-h-[46px] sm:min-h-[48px] sm:w-auto sm:self-start sm:px-8';
 
   const secondaryButton =
-    'rounded-xl inline-flex w-full shrink-0 grow-0 basis-auto self-stretch items-center justify-center whitespace-nowrap border border-[#0A0A0A]/45 ' +
+    'rounded-xl inline-flex w-full shrink-0 grow-0 basis-auto self-stretch items-center justify-center whitespace-nowrap border border-[#2A2622]/45 ' +
     'bg-transparent px-6 text-[12px] font-medium uppercase tracking-[0.15em] text-[#0A0A0A] ' +
-    'transition-colors duration-300 hover:border-[#0A0A0A] hover:bg-[#FAF8F5]/35 ' +
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A] focus-visible:ring-offset-2 ' +
+    'transition-colors duration-300 hover:border-[#2A2622] hover:bg-[#FAF8F5]/35 ' +
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2A2622] focus-visible:ring-offset-2 ' +
     'focus-visible:ring-offset-[#FAF8F5] motion-reduce:transition-none ' +
     'min-h-[46px] sm:min-h-[48px] sm:w-auto sm:self-start sm:px-8';
 

@@ -106,7 +106,7 @@ export const PackagesSection: React.FC = () => {
 
                     {/* Subtle soft vignette on hover (non-solid, plate stays fully visible
                         through and around it) — the method cards' hover treatment. */}
-                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(10,10,10,0.45)_100%)]" />
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(42, 38, 34,0.45)_100%)]" />
                   </div>
                 )}
 
